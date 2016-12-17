@@ -51,52 +51,52 @@ for Y_nameId = 1:length(Z),
 end
 
 
-%% Print config file
-true_conf.cores = X(:,1); 
-true_conf.freq  = X(:,2);
-est_conf.cores = X(:,1); 
-est_conf.freq  = X(:,2);
-online_conf.cores = X(:,1); 
-online_conf.freq  = X(:,2);
-offline_conf.cores = X(:,1); 
-offline_conf.freq  = X(:,2);
-for i = 1:m      
-    true_conf.perf  = Z{1}(:,i); 
-    true_conf.lifetime = Z{2}(:,i);
-    T = struct2table(true_conf);
-    name = strcat('Poet_Config/true_',app_name(i),'.txt');
-    writetable(T,name{1},'Delimiter',' ');
-
-    est_conf.perf  = cell2mat(wl{1,i}); 
-    est_conf.lifetime = cell2mat(wl{2,i});
-    T = struct2table(est_conf);
-    name = strcat('Poet_Config/est_',app_name(i),'.txt');
-    writetable(T,name{1},'Delimiter',' ');
-    
-    online_conf.perf  = wl_online{1,i}; 
-    online_conf.lifetime = wl_online{2,i};
-    T = struct2table(online_conf);
-    name = strcat('Poet_Config/online_',app_name(i),'.txt');
-    writetable(T,name{1},'Delimiter',' ');
-    
-    offline_conf.perf  = wl_offline{1,i}; 
-    offline_conf.lifetime = wl_offline{2,i};
-    T = struct2table(offline_conf);
-    name = strcat('Poet_Config/offline_',app_name(i),'.txt');
-    writetable(T,name{1},'Delimiter',' ');
-end
-
-accuracy_out.name          = app_name;
-accuracy_out.est_rate      = accuracy(:,1);
-accuracy_out.est_rate      = accuracy(:,1);
-accuracy_out.est_power     = accuracy(:,2);
-accuracy_out.online_rate   = accuracy_online(:,1);
-accuracy_out.online_power  = accuracy_online(:,2);
-accuracy_out.offline_rate  = accuracy_offline(:,1);
-accuracy_out.offline_power = accuracy_offline(:,2);
-T = struct2table(accuracy_out);
-name = strcat('Poet_Config/accuracy.txt');
-writetable(T,name,'Delimiter',' ');
+% %% Print config file
+% true_conf.cores = X(:,1); 
+% true_conf.freq  = X(:,2);
+% est_conf.cores = X(:,1); 
+% est_conf.freq  = X(:,2);
+% online_conf.cores = X(:,1); 
+% online_conf.freq  = X(:,2);
+% offline_conf.cores = X(:,1); 
+% offline_conf.freq  = X(:,2);
+% for i = 1:m      
+%     true_conf.perf  = Z{1}(:,i); 
+%     true_conf.lifetime = Z{2}(:,i);
+%     T = struct2table(true_conf);
+%     name = strcat('Poet_Config/true_',app_name(i),'.txt');
+%     writetable(T,name{1},'Delimiter',' ');
+% 
+%     est_conf.perf  = cell2mat(wl{1,i}); 
+%     est_conf.lifetime = cell2mat(wl{2,i});
+%     T = struct2table(est_conf);
+%     name = strcat('Poet_Config/est_',app_name(i),'.txt');
+%     writetable(T,name{1},'Delimiter',' ');
+%     
+%     online_conf.perf  = wl_online{1,i}; 
+%     online_conf.lifetime = wl_online{2,i};
+%     T = struct2table(online_conf);
+%     name = strcat('Poet_Config/online_',app_name(i),'.txt');
+%     writetable(T,name{1},'Delimiter',' ');
+%     
+%     offline_conf.perf  = wl_offline{1,i}; 
+%     offline_conf.lifetime = wl_offline{2,i};
+%     T = struct2table(offline_conf);
+%     name = strcat('Poet_Config/offline_',app_name(i),'.txt');
+%     writetable(T,name{1},'Delimiter',' ');
+% end
+% 
+% accuracy_out.name          = app_name;
+% accuracy_out.est_rate      = accuracy(:,1);
+% accuracy_out.est_rate      = accuracy(:,1);
+% accuracy_out.est_power     = accuracy(:,2);
+% accuracy_out.online_rate   = accuracy_online(:,1);
+% accuracy_out.online_power  = accuracy_online(:,2);
+% accuracy_out.offline_rate  = accuracy_offline(:,1);
+% accuracy_out.offline_power = accuracy_offline(:,2);
+% T = struct2table(accuracy_out);
+% name = strcat('Poet_Config/accuracy.txt');
+% writetable(T,name,'Delimiter',' ');
 %% Nuclear norm
 % addpath('MatrixCompletion/');
 % lambda_tol = 10^(-6);
